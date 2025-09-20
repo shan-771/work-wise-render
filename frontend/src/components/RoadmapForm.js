@@ -1,5 +1,6 @@
 import { useState } from "react";
-import API_URL from './config';
+import API_URL from '../config'; // up one folder from components to src
+
 
 export default function RoadmapForm({ onRoadmapGenerated }) {
   const [goal, setGoal] = useState("");

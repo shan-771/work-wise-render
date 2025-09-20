@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { db, auth } from "../firebaseConfig";
 import { doc, setDoc, getDoc} from "firebase/firestore";
-import API_URL from './config';
+import API_URL from '../config'; // up one folder from components to src
+
 
 
 

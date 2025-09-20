@@ -1,6 +1,7 @@
 import { useState } from "react";
 import JobPreferencesForm from "../components/JobPreferencesForm";
-import API_URL from './config';
+import API_URL from '../config'; // up one folder from components to src
+
 
 export default function JobSuggestions() {
   const [showForm, setShowForm] = useState(true);
