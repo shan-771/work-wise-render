@@ -180,11 +180,13 @@ def evaluate_answers():
 @app.route('/job_suggestions', methods=['GET'])
 def job_suggestions():
     try:
-        # Get query params from frontend
         query = request.args.get("query", "software engineer")
         location = request.args.get("location", "India")
 
-        # Adzuna API endpoint
+        if not ADZUNA_APP_ID or not ADZUNA_APP_KEY:
+            logger.error("Adzuna API keys are missing!")
+            return jsonify({"error": "Server misconfigured: missing Adzuna API keys"}), 500
+
         url = "https://api.adzuna.com/v1/api/jobs/in/search/1"
         params = {
             "app_id": ADZUNA_APP_ID,
@@ -194,26 +196,32 @@ def job_suggestions():
             "results_per_page": 10
         }
 
+        logger.debug(f"Calling Adzuna API with params: {params}")
         response = requests.get(url, params=params, timeout=10)
 
-        if response.status_code == 200:
-            jobs = response.json().get("results", [])
-            simplified = [
-                {
-                    "title": job.get("title"),
-                    "company": job.get("company", {}).get("display_name"),
-                    "location": job.get("location", {}).get("display_name"),
-                    "url": job.get("redirect_url")
-                }
-                for job in jobs
-            ]
-            return jsonify({"jobs": simplified})
-        else:
-            return jsonify({"error": "Failed to fetch jobs"}), 500
+        if response.status_code != 200:
+            logger.error(f"Adzuna API failed: {response.status_code} {response.text}")
+            return jsonify({"error": "Failed to fetch jobs from Adzuna"}), 500
 
+        jobs = response.json().get("results", [])
+        simplified = [
+            {
+                "title": job.get("title"),
+                "company": job.get("company", {}).get("display_name"),
+                "location": job.get("location", {}).get("display_name"),
+                "url": job.get("redirect_url")
+            }
+            for job in jobs
+        ]
+        return jsonify({"jobs": simplified})
+
+    except requests.exceptions.RequestException as e:
+        logger.error(f"RequestException: {str(e)}")
+        return jsonify({"error": "Network error contacting Adzuna API"}), 500
     except Exception as e:
-        logger.error(f"Error in job_suggestions: {str(e)}")
-        return jsonify({"error": str(e)}), 500
+        logger.error(f"Unexpected error: {str(e)}")
+        return jsonify({"error": "Server error"}), 500
+
 
 
 if __name__ == '__main__':
