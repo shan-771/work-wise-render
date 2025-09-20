@@ -1,5 +1,6 @@
 import { useState } from "react";
 import JobPreferencesForm from "../components/JobPreferencesForm";
+import API_URL from './config';
 
 export default function JobSuggestions() {
   const [showForm, setShowForm] = useState(true);
@@ -14,7 +15,7 @@ export default function JobSuggestions() {
         location: preferences.location || "remote",
       });
 
-      const res = await fetch(`http://127.0.0.1:5000/job_suggestions?${queryParams}`);
+      const res = await fetch(`${API_URL}/job_suggestions?${queryParams}`);
       const data = await res.json();
 
       console.log("API response:", data); // 👀 check what backend returns

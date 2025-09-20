@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { db, auth } from "../firebaseConfig";
 import { doc, setDoc, getDoc} from "firebase/firestore";
+import API_URL from './config';
+
 
 
 const MockInterview = () => {
@@ -65,7 +67,7 @@ const MockInterview = () => {
 
   const generateQuestions = async () => {
     try {
-      const response = await fetch("http://localhost:5000/generate_questions", {
+      const response = await fetch(`${API_URL}/generate_questions`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ job_role: jobRole, experience, skills })
@@ -136,7 +138,7 @@ const MockInterview = () => {
       return;
     }
 
-    const response = await fetch("http://localhost:5000/evaluate_answers", {
+    const response = await fetch(`${API_URL}/evaluate_answers`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ answers: answersToEvaluate })

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import API_URL from './config';
 
 export default function RoadmapForm({ onRoadmapGenerated }) {
   const [goal, setGoal] = useState("");
@@ -11,7 +12,7 @@ export default function RoadmapForm({ onRoadmapGenerated }) {
   setLoading(true);
 
   try {
-    const res = await fetch("http://localhost:5000/generate_roadmap", {
+    const res = await fetch(`${API_URL}/generate_roadmap`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
