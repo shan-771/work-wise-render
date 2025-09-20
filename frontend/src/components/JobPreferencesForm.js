@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { db, auth } from "../firebaseConfig";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { motion } from "framer-motion";
+import API_URL from '../config'; // up one folder from components to src
 
 const JobPreferencesForm = ({ onPreferencesSaved }) => {
 const [preferences, setPreferences] = useState({
@@ -38,7 +39,7 @@ const [preferences, setPreferences] = useState({
   // Call your API with query and location
   try {
     const res = await fetch(
-      `http://127.0.0.1:5000/job_suggestions?query=${preferences.skills}&location=${preferences.location}`
+      `${API_URL}/job_suggestions?query=${preferences.skills}&location=${preferences.location}`
     );
     const data = await res.json();
     console.log("Job Suggestions:", data); // <-- check in console
