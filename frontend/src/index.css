@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 /* Modern Color Palette */
+
 :root {
   --primary: #4f46e5;       /* Indigo-600 */
   --primary-hover: #4338ca; /* Indigo-700 */
@@ -12,6 +13,8 @@
   --dark: #1e293b;          /* Slate-800 */
   --muted: #64748b;         /* Slate-500 */
 }
+
+
 
 /* Smooth transitions */
 * {
