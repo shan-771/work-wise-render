@@ -7,7 +7,8 @@ const Navbar = () => {
   const [showSettings, setShowSettings] = useState(false);
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-10">
+    
+    <header className="bg-[#ade4cb] shadow-sm sticky top-0 z-10">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           {/* Left side - Logo/Brand */}
