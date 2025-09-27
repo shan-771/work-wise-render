@@ -5,54 +5,53 @@ const Dashboard = () => {
   
   // Feature cards data
   const features = [
-    {
-      title: "Mock Interview",
-      description: "Practice with AI-powered interviews and get instant feedback",
-      icon: "🎤",
-      path: "/mock-interview",
-      color: "bg-blue-500 hover:bg-blue-600"
-    },
-    {
-      title: "Resume Builder",
-      description: "Create a professional resume with our easy-to-use builder",
-      icon: "📝",
-      path: "/resume-builder",
-      color: "bg-green-500 hover:bg-green-600"
-    },
-    {
-      title: "Resume Scorer",
-      description: "Get your resume scored and receive improvement suggestions",
-      icon: "⭐",
-      path: "/resume-scorer",
-      color: "bg-yellow-500 hover:bg-yellow-600"
-    },
-    {
-      title: "Job Suggestions",
-      description: "Discover personalized job recommendations based on your profile",
-      icon: "🔍",
-      path: "/job-suggestions",
-      color: "bg-red-500 hover:bg-red-600"
-    },
-    {
-      title: "Roadmaps",
-      description: "Browse Roadmaps for your target roles",
-      icon: "❓",
-      path: "/Roadmap",
-      color: "bg-purple-500 hover:bg-purple-600"
-    },
-    {
-      title: "Progress Tracker",
-      description: "Monitor your job search progress and applications",
-      icon: "📊",
-      path: "/progress-tracker",
-      color: "bg-indigo-500 hover:bg-indigo-600"
-    }
-  ];
+  {
+    title: "Mock Interview",
+    description: "Practice with AI-powered interviews and get instant feedback",
+    icon: "🎤",
+    path: "/mock-interview",
+    color: "bg-[#59c1bd] hover:bg-[#0d4c92]"
+  },
+  {
+    title: "Resume Builder",
+    description: "Create a professional resume with our easy-to-use builder",
+    icon: "📝",
+    path: "/resume-builder",
+    color: "bg-[#59c1bd] hover:bg-[#0d4c92]"
+  },
+  {
+    title: "Resume Scorer",
+    description: "Get your resume scored and receive improvement suggestions",
+    icon: "⭐",
+    path: "/resume-scorer",
+    color: "bg-[#59c1bd] hover:bg-[#0d4c92]"
+  },
+  {
+    title: "Job Suggestions",
+    description: "Discover personalized job recommendations based on your profile",
+    icon: "🔍",
+    path: "/job-suggestions",
+    color: "bg-[#59c1bd] hover:bg-[#0d4c92]"
+  },
+  {
+    title: "Roadmaps",
+    description: "Browse Roadmaps for your target roles",
+    icon: "❓",
+    path: "/Roadmap",
+    color: "bg-[#59c1bd] hover:bg-[#0d4c92]"
+  },
+  {
+    title: "Progress Tracker",
+    description: "Monitor your job search progress and applications",
+    icon: "📊",
+    path: "/progress-tracker",
+    color: "bg-[#59c1bd] hover:bg-[#0d4c92]"
+  }
+];
+
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-200">
-      
-
+      <div className="min-h-screen bg-[#cff5e7]">
       {/* Main Content */}
       <main className="max-w-6xl mx-auto p-6">
         {/* Welcome Header */}
