@@ -14,23 +14,24 @@ import Roadmap from "./components/Roadmap";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Login />} /> {/* ✅ Now Login is the homepage */}
-
-        <Route element={<Layout />}>
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/profile" element={<Profile />} /> {/* ✅ Profile Route */}
-        <Route path="/mock-interview" element={<MockInterview />} />
-        <Route path="/resume-builder" element={<ResumeBuilder />} />
-        <Route path="/resume-editor" element={<ResumeEditor />} />
-        <Route path="/resume-scorer" element={<ResumeScorer />} />
-        <Route path="/job-suggestions" element={<JobSuggestions/>} />
-        <Route path="/Roadmap" element={<Roadmap/>} />
-        <Route path="/Progress-tracker" element={<ProgressTracker/>}/>
-        </Route>
-      </Routes>
-    </Router>
+    <div style={{ minHeight: "100vh", backgroundColor: "#cff5e7" }}>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Login />} /> {/* ✅ Now Login is the homepage */}
+          <Route element={<Layout />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/profile" element={<Profile />} /> {/* ✅ Profile Route */}
+          <Route path="/mock-interview" element={<MockInterview />} />
+          <Route path="/resume-builder" element={<ResumeBuilder />} />
+          <Route path="/resume-editor" element={<ResumeEditor />} />
+          <Route path="/resume-scorer" element={<ResumeScorer />} />
+          <Route path="/job-suggestions" element={<JobSuggestions/>} />
+          <Route path="/Roadmap" element={<Roadmap/>} />
+          <Route path="/Progress-tracker" element={<ProgressTracker/>}/>
+          </Route>
+        </Routes>
+      </Router>
+    </div>
   );
 }
 
