@@ -48,7 +48,7 @@ def generate_roadmap():
         current_skills = data.get("current_skills", "python, problem solving")
         duration = data.get("duration", "6 months")
 
-        model = genai.GenerativeModel('gemini-2.5-flash')
+        model = genai.GenerativeModel('gemini-2.0-flash')
 
         prompt = (
             f"You are an assistant that ONLY returns valid JSON. "
@@ -105,7 +105,7 @@ def generate_questions():
         experience = data.get("experience", "fresher")
         skills = data.get("skills", "python, c++, java, ai models")
 
-        model = genai.GenerativeModel('gemini-2.5-flash')
+        model = genai.GenerativeModel('gemini-2.0-flash')
         response = model.generate_content(
             f"You are an interviewer. Generate 5 interview questions for a {job_role} role "
             f"with {experience} years of experience and skills in {skills}. The questions should "
